@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  swag:
+    image: linuxserver/swag
+    container_name: swag
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./config/swag:/config
+      - ./data/swag:/data
+    environment:
+      - URL=yourdomain.com
+      - VALIDATION=your_email@example.com
+
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
+    volumes:
+      - ./config/authelia:/config
+    environment:
+      - TZ=Europe/Helsinki
+    depends_on:
+      - swag
+
+  kipa:
+    image: nginx:latest
+    container_name: kipa
+    volumes:
+      - ./kipa/kiba.db:/tmp/kipa.db
+    depends_on:
+      - authelia
+
+networks:
+  default:
+    external:
+      name: proxy

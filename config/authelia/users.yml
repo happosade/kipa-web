@@ -1,0 +1,14 @@
+# For hashing passwords: authelia hash-password
+
+users:
+  john:
+    displayname: John Doe
+    password: $argon2id$v=19$m=65536,t=3,p=2$c29tZXNhbHR5c2FsdHlzdHJpbmc$B5qG5v5cQxXzF5PjI9T2fP/dU58UH7v+n/e/S4+HP2o  # Password is "password"
+    email: john.doe@authelia.com
+    groups: []
+  jane:
+    displayname: Jane Doe
+    password: $argon2id$v=19$m=65536,t=3,p=2$c29tZXNhbHR5c2FsdHlzdHJpbmc$B5qG5v5cQxXzF5PjI9T2fP/dU58UH7v+n/e/S4+HP2o # Password is "password"
+    email: jane.doe@authelia.com
+    groups:
+      - admins
