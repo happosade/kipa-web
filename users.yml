@@ -1,0 +1,11 @@
+users:
+  keijo:
+    displayname: keijo
+    password: $argon2id$v=19$m=65536,t=3,p=4$h0nOG0mBPyzrTJfeop4vuA$uRIT5FIIOJx1RXM2DnQM3rstt6/VR09AnzI/kApMAxs
+    email: example@domain.tld
+    groups: []
+  john:
+    displayname: john
+    password: $argon2id$v=19$m=65536,t=3,p=4$I7do0/mwNb0iT0fzfeXOsw$bhrDQILnsepHpaJ5e4A0STcQ6EqDyGkhfd1YVjhJpD4
+    email: john@domain.tld
+    groups: []

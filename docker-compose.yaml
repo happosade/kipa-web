@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   swag:
     image: linuxserver/swag
@@ -11,8 +9,14 @@ services:
       - ./config/swag:/config
       - ./data/swag:/data
     environment:
-      - URL=yourdomain.com
-      - VALIDATION=your_email@example.com
+      - URL=dummy  # Use a dummy value like 'dummy' or 'example.com'
+      - VALIDATION=http # Use HTTP validation (no certs needed initially)
+      - CERTPROVIDER= # Leave empty to disable cert provisioning
+      - ONLY_SUBDOMAINS=false
+      - STAGING=false
+      - EXTRA_DOMAINS=
+    networks:
+      - proxy
 
   authelia:
     image: authelia/authelia
@@ -25,14 +29,15 @@ services:
       - swag
 
   kipa:
-    image: nginx:latest
     container_name: kipa
+    build: 
+      context: ./kipa
+      dockerfile: Dockerfile
     volumes:
       - ./kipa/kiba.db:/tmp/kipa.db
     depends_on:
       - authelia
 
 networks:
-  default:
-    external:
-      name: proxy
+  proxy:
+    #external: true

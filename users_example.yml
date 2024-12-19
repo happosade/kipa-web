@@ -1,0 +1,8 @@
+users:
+  - name: keijo
+    clear_password: password
+    email: example@domain.tld
+  - name: john
+    clear_password: salakala
+    email: john@domain.tld
+
