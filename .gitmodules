@@ -1,3 +1,6 @@
 [submodule "kipa"]
 	path = kipa
 	url = git@github.com:partio-scout/kipa.git
+[submodule "kike"]
+	path = kike
+	url = git@github.com:happosade/kike.git

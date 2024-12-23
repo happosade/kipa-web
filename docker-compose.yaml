@@ -37,6 +37,19 @@ services:
       - ./kipa/kiba.db:/tmp/kipa.db
     depends_on:
       - authelia
+    ports:
+      - "3000:3000"
+
+# Experimental Kike - reimplementation for kipa
+  kike:
+    container_name: kike
+    build:
+      context: ./kike
+      dockerfile: Dockerfile
+    volumes:
+      - ./kike.db:/kike.db
+    depends_on:
+      - authelia
 
 networks:
   proxy:

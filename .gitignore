@@ -1,0 +1,3 @@
+config/authelia/secrets
+kipa.db
+.vscode
